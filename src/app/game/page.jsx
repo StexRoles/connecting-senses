@@ -187,7 +187,7 @@ export default function Game() {
           <section className="flex justify-center items-center my-4 w-1/3">
             <button
               onClick={startNextRound}
-              className="bg-blue-500 text-white px-8 py-4 rounded-lg hover:bg-blue-600 transition-colors text-lg font-bold"
+              className="bg-blue-500 text-white px-3 py-2 rounded-lg hover:bg-blue-600 transition-colors text-lg font-bold"
             >
               🔊 Reproducir Sonido
             </button>
