@@ -123,7 +123,18 @@ export default function Game() {
     });
     setGameState('answered');
 
-    // Pasar a la siguiente ronda después de 2 segundos
+    // Reproducir sonido de feedback
+    try {
+      const feedbackSoundPath = isCorrect ? "/sounds/correct.mp3" : "/sounds/error.mp3";
+      const feedbackAudio = new Audio(feedbackSoundPath);
+      feedbackAudio.play().catch(error => {
+        console.error('Error al reproducir el sonido de feedback:', error);
+      });
+    } catch (error) {
+      console.error('Error al crear el audio de feedback:', error);
+    }
+
+    // Pasar a la siguiente ronda después de 1 segundos
     setTimeout(() => {
       if (currentRound < 6) {
         setCurrentRound(prev => prev + 1);
@@ -135,7 +146,7 @@ export default function Game() {
       } else {
         setGameState('finished');
       }
-    }, 2000);
+    }, 1000);
   };
 
   const resetGame = () => {
